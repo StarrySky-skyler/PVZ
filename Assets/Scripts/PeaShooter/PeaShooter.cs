@@ -15,9 +15,14 @@ namespace PeaShooter
     {
         public float interval;
         public GameObject bulletPre;
-        public Transform bulletSpawnPos;
 
         private float _timer;
+        private Transform _bulletSpawnPos;
+
+        private void Start()
+        {
+            _bulletSpawnPos = transform.Find("BulletPos").GetComponent<Transform>();
+        }
 
         private void Update()
         {
@@ -25,7 +30,7 @@ namespace PeaShooter
             if (_timer >= interval)
             {
                 _timer = 0;
-                Instantiate(bulletPre, bulletSpawnPos.position, Quaternion.identity);
+                Instantiate(bulletPre, _bulletSpawnPos.position, Quaternion.identity);
             }
         }
     }
