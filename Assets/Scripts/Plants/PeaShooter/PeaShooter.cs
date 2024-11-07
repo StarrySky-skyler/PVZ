@@ -14,9 +14,8 @@ namespace Plants.PeaShooter
     public class PeaShooter : MonoBehaviour
     {
         public float maxHealth = 100f;     // 生命值
-        [FormerlySerializedAs("interval")]
-        public float shootInterval;
-        public GameObject bulletPre;
+        public float shootInterval;        // 射击间隔
+        public GameObject bulletPre;        // 子弹预制体
 
         private float _timer;
         private Transform _bulletSpawnPos;
@@ -37,6 +36,21 @@ namespace Plants.PeaShooter
                 _timer = 0;
                 Instantiate(bulletPre, _bulletSpawnPos.position, Quaternion.identity);
             }
+        }
+
+        /// <summary>
+        /// 改变生命值
+        /// </summary>
+        /// <param name="damage">伤害</param>
+        /// <returns></returns>
+        public float ChangeHealth(float damage)
+        {
+            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, maxHealth);
+            if (_currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+            return _currentHealth;
         }
     }
 }

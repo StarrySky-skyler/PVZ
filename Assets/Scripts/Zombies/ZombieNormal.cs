@@ -7,6 +7,7 @@
 // ********************************************************************************
 
 using System;
+using Plants.PeaShooter;
 using UnityEngine;
 
 namespace Zombies
@@ -67,7 +68,15 @@ namespace Zombies
                 _damageTimer += Time.deltaTime;
                 if (_damageTimer >= damageInterval)
                 {
-                    // TODO: 对植物造成伤害
+                    _damageTimer = 0;
+                    var peaShooter = other.GetComponent<PeaShooter>();
+                    var currentHealth = peaShooter.ChangeHealth(damage);
+                    // 如果植物生命值为0，则僵尸回到行走状态
+                    if (currentHealth <= 0)
+                    {
+                        _isWalking = true;
+                        _animator.SetBool("Walk", _isWalking);
+                    }
                 }
             }
         }

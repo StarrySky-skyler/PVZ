@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0, z: 0}
-  speed: 10
+  speed: 30
+  damage: 30
+  damageInterval: 0.5
 --- !u!61 &427080164457733376
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +199,6 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0

@@ -35,10 +35,17 @@ namespace Card
                     CardOnReady?.Invoke();
                     _timer = 0;
                 }
+                else
+                {
+                    CardToCd?.Invoke();
+                }
+                CardStatusChanged?.Invoke();
             }
         }
 
         public event Action CardOnReady;
+        public event Action CardToCd;
+        public event Action CardStatusChanged;
 
         private GameObject _darkBg;
         private Image _progressBar;
@@ -51,10 +58,11 @@ namespace Card
         private void Start()
         {
             // 卡片准备完成事件注册
-            CardOnReady += UpdateDarkBg;
+            CardStatusChanged += UpdateDarkBg;
             _darkBg = transform.Find("Dark").gameObject;
             _progressBar = transform.Find("Progress").GetComponent<Image>();
             _cardImage = GetComponent<Image>();
+            CardReady = true;
         }
 
         private void Update()
@@ -127,6 +135,7 @@ namespace Card
                     _currentGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     // 重置当前卡片对应的物体，防止重复种植
                     _currentGameObject = null;
+                    CardReady = false;
                     break;
                 }
             }
