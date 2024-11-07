@@ -8,7 +8,7 @@
 
 using UnityEngine;
 
-namespace PeaShooter
+namespace Plants.PeaShooter
 {
     public class PeaBullet : MonoBehaviour
     {

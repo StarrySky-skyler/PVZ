@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
+  - Land
+  - Plant
+  - Zombie
   layers:
   - Default
   - TransparentFX

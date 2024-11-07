@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6423064386179100771}
   m_Layer: 0
   m_Name: Peashooter
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 2
   bulletPre: {fileID: 2970146836049720157, guid: 805ecb4e9b0192a448f9fefb5c29af4e, type: 3}
-  bulletSpawnPos: {fileID: 8628462589208410750}
 --- !u!1 &3907065377769017334
 GameObject:
   m_ObjectHideFlags: 0
