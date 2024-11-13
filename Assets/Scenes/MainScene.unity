@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 117860487}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,7 +2098,7 @@ GameObject:
   - component: {fileID: 793616117}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3053,7 +3053,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: '100
+
+'
 --- !u!222 &1069614012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3075,7 +3077,7 @@ GameObject:
   - component: {fileID: 1160553523}
   m_Layer: 0
   m_Name: BottomWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4511,63 +4513,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 80, y: 100}
   m_EdgeRadius: 0
---- !u!1001 &1707880245
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -242.09654
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -26.32287
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3784361500549716834, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7052587445012539207, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
-      propertyPath: m_Name
-      value: SunFlower
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
 --- !u!1 &1716375905
 GameObject:
   m_ObjectHideFlags: 0
@@ -4728,7 +4673,7 @@ GameObject:
   - component: {fileID: 1752815001}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5303,7 +5248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1033593731205567229, guid: 1dfda9bbc20db09419c039a04b637fd9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 209.9
       objectReference: {fileID: 0}
     - target: {fileID: 1033593731205567229, guid: 1dfda9bbc20db09419c039a04b637fd9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5660,4 +5605,3 @@ SceneRoots:
   - {fileID: 1944685493}
   - {fileID: 295497316}
   - {fileID: 1635795073256806212}
-  - {fileID: 1707880245}
