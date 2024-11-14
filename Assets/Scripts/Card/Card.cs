@@ -7,6 +7,7 @@
 // ********************************************************************************
 
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -32,20 +33,13 @@ namespace Card
                 _cardReady = value;
                 if (_cardReady)
                 {
-                    CardOnReady?.Invoke();
                     _timer = 0;
                 }
-                else
-                {
-                    CardToCd?.Invoke();
-                }
-                CardStatusChanged?.Invoke();
+                CardStatusChanged?.Invoke(_cardReady);
             }
         }
-
-        public event Action CardOnReady;
-        public event Action CardToCd;
-        public event Action CardStatusChanged;
+        
+        public event Action<bool> CardStatusChanged;
 
         private GameObject _darkBg;
         private Image _progressBar;
@@ -74,6 +68,9 @@ namespace Card
             }
         }
 
+        /// <summary>
+        /// 更新卡片进度条
+        /// </summary>
         private void UpdateProgressBar()
         {
             var per = Mathf.Clamp(_timer / cardCd, 0, 1);
@@ -81,10 +78,13 @@ namespace Card
             CardReady = _progressBar.fillAmount == 0;
         }
 
-        private void UpdateDarkBg()
+        /// <summary>
+        /// 更新卡片是否显示灰色背景
+        /// </summary>
+        /// <param name="status"></param>
+        private void UpdateDarkBg(bool status)
         {
-            // TODO:增加判断条件当前阳光数大于需要阳光数
-            if (CardReady)
+            if (status && GameManager.instance.CurrentSunNum >= sunCost)
             {
                 _darkBg.SetActive(false);
             }
@@ -97,7 +97,7 @@ namespace Card
         // 拖拽开始（鼠标点击的一瞬间）
         public void OnBeginDrag(BaseEventData baseEventData)
         {
-            if (!CardReady) return;
+            if (!CardReady || _darkBg.activeSelf) return;
             PointerEventData pointerEventData = baseEventData as PointerEventData;
             _cardImage.color = new Color32(255, 255, 255, 135);
             _currentGameObject = Instantiate(objectPrefab);
@@ -109,7 +109,7 @@ namespace Card
         // 拖拽中（鼠标点击后一直拖动）
         public void OnDrag(BaseEventData baseEventData)
         {
-            if (!CardReady || _currentGameObject == null) return;
+            if (!CardReady || _currentGameObject == null || _darkBg.activeSelf) return;
             PointerEventData pointerEventData = baseEventData as PointerEventData;
             _currentGameObject.transform.position = TranslateScreenToWorld(pointerEventData.position);
         }
@@ -117,7 +117,7 @@ namespace Card
         // 拖拽结束（鼠标松开）
         public void OnEndDrag(BaseEventData baseEventData)
         {
-            if (!CardReady || _currentGameObject == null) return;
+            if (!CardReady || _currentGameObject == null || _darkBg.activeSelf) return;
             _cardImage.color = new Color32(255, 255, 255, 255);
             _currentGameObject.GetComponent<Animator>().enabled = true;
             // 拿到当前鼠标位置的碰撞体
@@ -136,6 +136,8 @@ namespace Card
                     // 重置当前卡片对应的物体，防止重复种植
                     _currentGameObject = null;
                     CardReady = false;
+                    // 消耗对应的阳光数量
+                    GameManager.instance.ChangeSunNum(-sunCost);
                     break;
                 }
             }

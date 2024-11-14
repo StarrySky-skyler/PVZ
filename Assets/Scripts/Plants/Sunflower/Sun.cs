@@ -9,6 +9,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using Managers;
 
 namespace Plants.Sunflower
 {
@@ -42,6 +43,14 @@ namespace Plants.Sunflower
             transform.localScale = _startScale;
             transform.DOScale(_targetScale, 0.3F);
             //Destroy(gameObject, duration);
+        }
+
+        private void OnMouseDown()
+        {
+            // 点击后，增加阳光数量
+            GameManager.instance.ChangeSunNum(25);
+            // TODO：飞到太阳 UI 上，然后销毁
+            Destroy(gameObject);
         }
     }
 }
