@@ -7,6 +7,7 @@
 // ********************************************************************************
 
 using System;
+using Plants;
 using Plants.PeaShooter;
 using UnityEngine;
 
@@ -80,10 +81,10 @@ namespace Zombies
                 if (_damageTimer >= damageInterval)
                 {
                     _damageTimer = 0;
-                    var peaShooter = other.GetComponent<PeaShooter>();
-                    var currentHealth = peaShooter.ChangeHealth(damage);
+                    var plant = other.GetComponent<Plant>();
+                    var newHealth = plant.ChangeHealth(damage);
                     // 如果植物生命值为0，则僵尸回到行走状态
-                    if (currentHealth <= 0)
+                    if (newHealth <= 0)
                     {
                         _isWalking = true;
                         _animator.SetBool("Walk", _isWalking);
@@ -111,7 +112,7 @@ namespace Zombies
         public void ChangeHealth(float damages)
         {
             _currentHealth = Mathf.Clamp(_currentHealth + damages, 0, maxHealth);
-            Debug.Log("僵尸受到伤害，当前生命值：" + _currentHealth);
+            //Debug.Log("僵尸受到伤害，当前生命值：" + _currentHealth);
             // 血量低于 lostHeadHealth 时，僵尸丢失头部
             if (_currentHealth < lostHeadHealth && !_lostHead)
             {

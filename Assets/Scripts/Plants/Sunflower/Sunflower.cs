@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 namespace Plants.Sunflower
 {
-    public class Sunflower : MonoBehaviour
+    public class Sunflower : Plant
     {
         public float readyTime;                 // 太阳生产准备时间
         public GameObject sunPre;               // 太阳预制体
