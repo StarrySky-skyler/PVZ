@@ -18,10 +18,14 @@ namespace Managers
         
         public Text sunNumText;     // 阳光数量文本
 
-        private void Start()
+        private void Awake()
         {
             instance = this;
             GameManager.instance.CurrentSunNumChanged += UpdateSunNumText;
+        }
+
+        private void Start()
+        {
             UpdateSunNumText();
         }
 

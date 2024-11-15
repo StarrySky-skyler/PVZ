@@ -128,11 +128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0, z: 0}
   maxHealth: 100
-  speed: 25
+  speed: 15
   damage: 30
   damageInterval: 0.5
   lostHeadHealth: 50
-  head: {fileID: 6040449066045745223}
 --- !u!61 &427080164457733376
 BoxCollider2D:
   m_ObjectHideFlags: 0

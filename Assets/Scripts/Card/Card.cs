@@ -24,7 +24,7 @@ namespace Card
 
         // 消耗太阳数量
         public int sunCost;
-        
+
         public bool CardReady
         {
             get => _cardReady;
@@ -35,10 +35,11 @@ namespace Card
                 {
                     _timer = 0;
                 }
+
                 CardStatusChanged?.Invoke(_cardReady);
             }
         }
-        
+
         public event Action<bool> CardStatusChanged;
 
         private GameObject _darkBg;
@@ -75,7 +76,7 @@ namespace Card
         {
             var per = Mathf.Clamp(_timer / cardCd, 0, 1);
             _progressBar.fillAmount = 1 - per;
-            CardReady = _progressBar.fillAmount == 0;
+            CardReady = (_progressBar.fillAmount == 0);
         }
 
         /// <summary>
@@ -84,6 +85,7 @@ namespace Card
         /// <param name="status"></param>
         private void UpdateDarkBg(bool status)
         {
+            // 卡片准备完毕，且当前阳光数量大于等于消耗所需的阳光数量
             if (status && GameManager.instance.CurrentSunNum >= sunCost)
             {
                 _darkBg.SetActive(false);
@@ -141,9 +143,9 @@ namespace Card
                     break;
                 }
             }
-            
+
             // 如果没有符合条件的格子，销毁当前卡片对应的物体
-            if (_currentGameObject!= null)
+            if (_currentGameObject != null)
             {
                 Destroy(_currentGameObject);
                 _currentGameObject = null;
