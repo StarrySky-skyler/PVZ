@@ -32,6 +32,7 @@ namespace Managers
         public float zombieSpawnInterval;       // 僵尸生成间隔时间
         
         private int _currentSunNum; // 当前太阳数量
+        private int _zOrderIndex = 0;       // 僵尸z轴排序（解决僵尸重叠问题）
 
         private void Awake()
         {
@@ -72,6 +73,7 @@ namespace Managers
             var zombieLine = zombieBornParent.transform.Find("Born" + index.ToString());
             var zombie = Instantiate(zombiePrefab, zombieLine);
             zombie.transform.localPosition = Vector3.zero;
+            zombie.GetComponent<SpriteRenderer>().sortingOrder = _zOrderIndex++;
             // 递归调用自身，循环生成僵尸
             StartCoroutine(DelaySpawnZombie());
         }
