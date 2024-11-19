@@ -20,18 +20,25 @@ namespace Plants.Sunflower
         private Vector3 _startScale;
         private Vector3 _targetScale;
         private float _timer;
-        private bool _createdAnimation = false;
-        
+        private bool _createdAnimation;
+        private Sequence _sequence;
+
+        private void Start()
+        {
+            _sequence = DOTween.Sequence();
+            _sequence.Pause();
+            // 创建销毁动画
+            _sequence.Append(transform.DOScale(_startScale, 0.3f));
+            _sequence.AppendCallback(() => Destroy(gameObject));
+        }
+
         private void Update()
         {
             _timer += Time.deltaTime;
             if (_timer >= duration && !_createdAnimation)
             {
-                // 创建销毁动画
-                Sequence sequence = DOTween.Sequence();
-                sequence.Append(transform.DOScale(_startScale, 0.3f));
-                sequence.AppendCallback(() => Destroy(gameObject));
                 _createdAnimation = true;
+                _sequence.Play();
             }
         }
 
@@ -50,6 +57,8 @@ namespace Plants.Sunflower
             // 点击后，增加阳光数量
             GameManager.instance.ChangeSunNum(25);
             // TODO：飞到太阳 UI 上，然后销毁
+            _sequence.Kill(false);
+            _sequence = null;
             Destroy(gameObject);
         }
     }

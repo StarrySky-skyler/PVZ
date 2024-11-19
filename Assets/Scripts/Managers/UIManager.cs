@@ -26,12 +26,12 @@ namespace Managers
 
         private void Start()
         {
-            UpdateSunNumText();
+            UpdateSunNumText(GameManager.instance.CurrentSunNum);
         }
 
-        private void UpdateSunNumText()
+        private void UpdateSunNumText(int currentSunNum)
         {
-            sunNumText.text = GameManager.instance.CurrentSunNum.ToString();
+            sunNumText.text = currentSunNum.ToString();
         }
     }
 }

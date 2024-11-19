@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6122017244f3e90d3c926d2e0e98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   readyTime: 5
   sunPre: {fileID: 1778015602540840504, guid: 11e1ad44eee038e47a942213031cd5e4, type: 3}
 --- !u!50 &624388071025586914
