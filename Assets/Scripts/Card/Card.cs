@@ -8,6 +8,7 @@
 
 using System;
 using Managers;
+using Plants;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -154,6 +155,7 @@ namespace Card
                     _currentGameObject.transform.parent = collider1.transform;
                     _currentGameObject.transform.localPosition = Vector3.zero;
                     _currentGameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                    _currentGameObject.GetComponent<Plant>().SetPlanted();
                     // 重置当前卡片对应的物体，防止重复种植
                     _currentGameObject = null;
                     CardReady = false;

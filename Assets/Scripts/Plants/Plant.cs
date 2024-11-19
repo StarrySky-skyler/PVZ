@@ -16,10 +16,14 @@ namespace Plants
         public float maxHealth = 100f;     // 生命值;
         
         protected float CurrentHealth;       // 当前生命值
+        protected bool _isPlanted;        // 是否种植
+        protected BoxCollider2D _collider;
 
-        private void OnEnable()
+        private void Awake()
         {
             CurrentHealth = maxHealth;
+            _collider = GetComponent<BoxCollider2D>();
+            _collider.enabled = false;
         }
 
         /// <summary>
@@ -35,6 +39,16 @@ namespace Plants
                 Destroy(gameObject);
             }
             return CurrentHealth;
+        }
+
+        /// <summary>
+        /// 设置种植状态
+        /// </summary>
+        /// <returns></returns>
+        public void SetPlanted()
+        {
+            _isPlanted = true;
+            _collider.enabled = true;
         }
     }
 }

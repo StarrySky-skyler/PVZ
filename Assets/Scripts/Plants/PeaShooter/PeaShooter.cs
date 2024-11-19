@@ -26,6 +26,7 @@ namespace Plants.PeaShooter
 
         private void Update()
         {
+            if (!_isPlanted) return;
             // 如果生命值为0，则销毁该植物
             _timer += Time.deltaTime;
             if (_timer >= shootInterval)

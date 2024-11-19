@@ -27,6 +27,7 @@ namespace Plants.Sunflower
 
         private void Update()
         {
+            if (!_isPlanted) return;
             _timer += Time.deltaTime;
             if (_timer >= readyTime)
             {
