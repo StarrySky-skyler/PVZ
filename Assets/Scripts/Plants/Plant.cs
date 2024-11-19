@@ -17,7 +17,7 @@ namespace Plants
         
         protected float CurrentHealth;       // 当前生命值
 
-        private void Start()
+        private void OnEnable()
         {
             CurrentHealth = maxHealth;
         }
