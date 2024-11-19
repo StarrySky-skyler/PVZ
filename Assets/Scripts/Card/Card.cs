@@ -31,10 +31,7 @@ namespace Card
             private set
             {
                 _cardReady = value;
-                if (_cardReady)
-                {
-                    _timer = 0;
-                }
+                if (_cardReady) _timer = 0;
 
                 CardStatusChanged?.Invoke(_cardReady);
             }
@@ -50,21 +47,27 @@ namespace Card
         private float _timer;
         private bool _cardReady;
 
-        private void Start()
+        private void Awake()
         {
             // 卡片准备完成事件注册
             CardStatusChanged += UpdateDarkBg;
+        }
+
+        private void Start()
+        {
             _darkBg = transform.Find("Dark").gameObject;
             _progressBar = transform.Find("Progress").GetComponent<Image>();
             _cardImage = GetComponent<Image>();
             CardReady = true;
+            GameManager.instance.CurrentSunNumChanged += UpdateDarkBg2;
         }
 
         private void Update()
         {
             if (!CardReady)
             {
-                _timer += Time.deltaTime;
+                //_timer += Time.deltaTime;
+                _timer = Mathf.Clamp(_timer + Time.deltaTime, 0, cardCd);
                 UpdateProgressBar();
             }
         }
@@ -82,11 +85,27 @@ namespace Card
         /// <summary>
         /// 更新卡片是否显示灰色背景
         /// </summary>
-        /// <param name="status"></param>
-        private void UpdateDarkBg(bool status)
+        /// <param name="cardStatus"></param>
+        private void UpdateDarkBg(bool cardStatus)
         {
             // 卡片准备完毕，且当前阳光数量大于等于消耗所需的阳光数量
-            if (status && GameManager.instance.CurrentSunNum >= sunCost)
+            if (cardStatus && GameManager.instance.CurrentSunNum >= sunCost)
+            {
+                _darkBg.SetActive(false);
+            }
+            else
+            {
+                _darkBg.SetActive(true);
+            }
+        }
+
+        /// <summary>
+        /// 更新卡片是否显示灰色背景（依据当前阳光数量）
+        /// </summary>
+        /// <param name="currentSunNum"></param>
+        private void UpdateDarkBg2(int currentSunNum)
+        {
+            if (_cardReady && currentSunNum >= sunCost)
             {
                 _darkBg.SetActive(false);
             }

@@ -23,10 +23,10 @@ namespace Managers
             private set
             {
                 _currentSunNum = value;
-                CurrentSunNumChanged?.Invoke();
+                CurrentSunNumChanged?.Invoke(_currentSunNum);
             }
         }
-        public event Action CurrentSunNumChanged;
+        public event Action<int> CurrentSunNumChanged;
         public GameObject zombieBornParent;     // 僵尸出生点父对象
         public GameObject zombiePrefab;      // 僵尸预制体
         public float zombieSpawnInterval;       // 僵尸生成间隔时间
@@ -37,7 +37,7 @@ namespace Managers
         {
             instance = this;
             Application.targetFrameRate = 200;
-            CurrentSunNum = 50;
+            CurrentSunNum = 150;
         }
 
         private void Start()
