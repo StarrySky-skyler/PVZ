@@ -31,7 +31,7 @@ namespace Plants
         /// </summary>
         /// <param name="damage">伤害</param>
         /// <returns></returns>
-        public float ChangeHealth(float damage)
+        public virtual float ChangeHealth(float damage)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, maxHealth);
             if (CurrentHealth <= 0)

@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf4c2e7164646ada2910b5ab4e254c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardCd: 6
+  objectPrefab: {fileID: 0}
+  cardCd: 4
   sunCost: 50
 --- !u!114 &7111952766413312074
 MonoBehaviour:

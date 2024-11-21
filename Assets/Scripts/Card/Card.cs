@@ -125,7 +125,7 @@ namespace Card
             _currentGameObject = Instantiate(objectPrefab);
             _currentGameObject.GetComponent<Animator>().enabled = false;
             _currentGameObject.GetComponent<SpriteRenderer>().sortingOrder = 99;
-            _currentGameObject.transform.position = TranslateScreenToWorld(pointerEventData.position);
+            _currentGameObject.transform.position = GameManager.TranslateScreenToWorld(pointerEventData.position);
         }
 
         // 拖拽中（鼠标点击后一直拖动）
@@ -133,7 +133,7 @@ namespace Card
         {
             if (!CardReady || _currentGameObject == null || _darkBg.activeSelf) return;
             PointerEventData pointerEventData = baseEventData as PointerEventData;
-            _currentGameObject.transform.position = TranslateScreenToWorld(pointerEventData.position);
+            _currentGameObject.transform.position = GameManager.TranslateScreenToWorld(pointerEventData.position);
         }
 
         // 拖拽结束（鼠标松开）
@@ -144,7 +144,8 @@ namespace Card
             _currentGameObject.GetComponent<Animator>().enabled = true;
             // 拿到当前鼠标位置的碰撞体
             PointerEventData pointerEventData = baseEventData as PointerEventData;
-            Collider2D[] colliders = Physics2D.OverlapPointAll(TranslateScreenToWorld(pointerEventData.position));
+            Collider2D[] colliders =
+                Physics2D.OverlapPointAll(GameManager.TranslateScreenToWorld(pointerEventData.position));
             // 遍历碰撞体
             foreach (var collider1 in colliders)
             {
@@ -171,17 +172,6 @@ namespace Card
                 Destroy(_currentGameObject);
                 _currentGameObject = null;
             }
-        }
-
-        /// <summary>
-        /// 将屏幕坐标转换为世界坐标
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
-        public static Vector3 TranslateScreenToWorld(Vector3 position)
-        {
-            Vector3 cameraTranslatePosition = Camera.main.ScreenToWorldPoint(position);
-            return new Vector3(cameraTranslatePosition.x, cameraTranslatePosition.y, 0);
         }
     }
 }

@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 1142659692701089223, guid: e723880bf11733d47bb2b90443126020, type: 3}
-  cardCd: 4
+  cardCd: 3
   sunCost: 100
 --- !u!114 &226331729488260507
 MonoBehaviour:

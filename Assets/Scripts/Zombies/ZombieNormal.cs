@@ -9,6 +9,7 @@
 using System;
 using Plants;
 using Plants.PeaShooter;
+using Plants.WallNut;
 using UnityEngine;
 
 namespace Zombies
@@ -82,6 +83,7 @@ namespace Zombies
                 {
                     _damageTimer = 0;
                     var plant = other.GetComponent<Plant>();
+                    // TODO: 坚果受伤逻辑
                     var newHealth = plant.ChangeHealth(damage);
                     // 如果植物生命值为0，则僵尸回到行走状态
                     if (newHealth <= 0)

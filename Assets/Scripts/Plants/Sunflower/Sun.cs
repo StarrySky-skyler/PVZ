@@ -61,5 +61,7 @@ namespace Plants.Sunflower
             _sequence = null;
             Destroy(gameObject);
         }
+        
+        // TODO: 阳光有时候点不动，改用射线检测
     }
 }

@@ -77,5 +77,16 @@ namespace Managers
             // 递归调用自身，循环生成僵尸
             StartCoroutine(DelaySpawnZombie());
         }
+        
+        /// <summary>
+        /// 将屏幕坐标转换为世界坐标
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public static Vector3 TranslateScreenToWorld(Vector3 position)
+        {
+            Vector3 cameraTranslatePosition = Camera.main.ScreenToWorldPoint(position);
+            return new Vector3(cameraTranslatePosition.x, cameraTranslatePosition.y, 0);
+        }
     }
 }

@@ -847,6 +847,38 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 80, y: 100}
   m_EdgeRadius: 0
+--- !u!1 &427100975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3063129644702497571, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+  m_PrefabInstance: {fileID: 6775887534590777165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &427100981
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427100975}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &427477517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5038,9 +5070,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1497198297}
   - {fileID: 1515454214}
   - {fileID: 4843862671376439106}
-  - {fileID: 1497198297}
   m_Father: {fileID: 1982217156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5481,10 +5513,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1850108574}
     m_Modifications:
-    - target: {fileID: 2996205242027165975, guid: e48d1b7e3ccb75c40879fc8cc692c7f8, type: 3}
-      propertyPath: objectPrefab
-      value: 
-      objectReference: {fileID: 7052587445012539207, guid: 22c6f2f76ef3cc04496738a29eac48c1, type: 3}
     - target: {fileID: 3356336235789445006, guid: e48d1b7e3ccb75c40879fc8cc692c7f8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5565,10 +5593,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8382777449528236689, guid: e48d1b7e3ccb75c40879fc8cc692c7f8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8919592732733903086, guid: e48d1b7e3ccb75c40879fc8cc692c7f8, type: 3}
       propertyPath: m_Name
       value: CardSunflower
@@ -5583,6 +5607,78 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4986927772786420299, guid: d4596da5fcdd4654ea0e0c1d1c910ec5, type: 3}
   m_PrefabInstance: {fileID: 7080462432746614139}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6775887534590777165
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3063129644702497571, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_Name
+      value: WallNut
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713719243976324419, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107062161678673026, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107062161678673026, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: crackedHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107062161678673026, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      propertyPath: crackedWuwuwuHealth
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3063129644702497571, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 427100981}
+  m_SourcePrefab: {fileID: 100100000, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
 --- !u!1001 &7046514197152547257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5671,14 +5767,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6203782505227557772, guid: 4ee987b6c02b2d344b380bd57b7eef18, type: 3}
-      propertyPath: objectPrefab
-      value: 
-      objectReference: {fileID: 1142659692701089223, guid: e723880bf11733d47bb2b90443126020, type: 3}
-    - target: {fileID: 7054962000287157486, guid: 4ee987b6c02b2d344b380bd57b7eef18, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7318696618754603731, guid: 4ee987b6c02b2d344b380bd57b7eef18, type: 3}
       propertyPath: m_Name
       value: CardPeaShooter
@@ -5696,10 +5784,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1850108574}
     m_Modifications:
-    - target: {fileID: 2725847549794417095, guid: d4596da5fcdd4654ea0e0c1d1c910ec5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1818227547059380635, guid: d4596da5fcdd4654ea0e0c1d1c910ec5, type: 3}
+      propertyPath: objectPrefab
+      value: 
+      objectReference: {fileID: 3063129644702497571, guid: 9edd414429a1cde4a99537814e96289e, type: 3}
     - target: {fileID: 4986927772786420299, guid: d4596da5fcdd4654ea0e0c1d1c910ec5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5798,3 +5886,4 @@ SceneRoots:
   - {fileID: 427477521}
   - {fileID: 1944685493}
   - {fileID: 295497316}
+  - {fileID: 6775887534590777165}
